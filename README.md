@@ -7,7 +7,7 @@ To boot the app, please perform the following steps.
 2) If you open a separate command prompt or terminal, 
 activate the environment by running 
 source env/bin/activate (Linux/macOS) or
-env\Scripts\Activate.ps1 (Windows). 
+env\scripts\activate (Windows). 
 You know the environment is activated when the command prompt shows (env) at the beginning.
 Note: application was developed and tested in Windows 10 Pro Environment.
 
