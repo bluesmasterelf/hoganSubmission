@@ -26,7 +26,7 @@ Notes:
 - I've left css, styling and such very minimal as I'm not using React and there's really no end to how much time you can sink into such matters. 
 - The testing is 'comprehensive' insofar as each main kind of testing (service, unit, repository) is demonstrated, 
 	but rather than duplicate and modify for every case, I tried to get at least one example of each kind of test for each kind of file or method.
-- The navigation is obviously quite clunky. I'd normally want in-view dynamic page generation without leaning so heavily on pathing. 
+- The navigation is obviously quite clunky. I'd normally want in-view dynamic page generation without leaning so heavily on pathing. Also, first thing I would do is make a search results page for conversations instead of piggy backing on the home page, which would certainly confuse any user.
 - I've never really used Django before. 
 - I've never used Python for enterprise efforts before - only very many proof of concept scripts to justify work in a language like Java or C#
 
