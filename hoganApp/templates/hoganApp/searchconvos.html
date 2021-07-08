@@ -1,0 +1,16 @@
+{% block title %}
+    Search for conversations by title substring
+{% endblock %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'hoganApp/site.css' %}" />
+{% block content %}
+    
+    <form method="POST" class="thought-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Search for Conversations</button>
+    </form>    
+    <p>
+        <a href="/Conversations/">Back to Conversations</a>
+    </p>
+{% endblock %}

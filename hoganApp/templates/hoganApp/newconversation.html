@@ -1,0 +1,30 @@
+{% block title %}
+    Create a new conversation
+{% endblock %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'hoganApp/site.css' %}" />
+{% block content %}
+    <div>
+        <p>
+        <form method="POST" class="conversation-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Create</button>
+        </form>    
+        </p>
+        <p> Acceptable date formats: <br>
+            '%Y-%m-%d',  <br>
+            '%m/%d/%Y', <br>
+            '%m/%d/%y', <br>
+            '%b %d %Y', <br>
+            '%b %d, %Y', <br>
+            '%d %b %Y', <br>
+            '%d %b, %Y', <br>
+            '%B %d %Y', <br>
+            '%B %d, %Y', <br>
+            '%d %B %Y', <br>
+            '%d %B, %Y' <br>
+            (So sorry, client side validation is definitely high on the to-do, plus a date-picker)
+        </p>
+    </div>
+{% endblock %}

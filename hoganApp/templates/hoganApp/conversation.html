@@ -1,0 +1,51 @@
+{% block title %}
+    Interact with a conversation
+{% endblock %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'hoganApp/site.css' %}" />
+{% block content %}
+    <p>
+        {{ text }} <br>
+        Existing messages: <br>
+    </p>
+    <table class="message_list">
+        <thead>
+        <tr>
+            <th>Text</th>
+            <th>Add Thought</th>
+            <th>Thoughts</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for Message in messages %}
+        <tr>
+            <td>
+                {{Message.text}}
+            </td>>
+            <td> 
+                <a href="/Message/{{ Message.id }}/{{ conversationId }}">Add thought</a>
+            </td>            
+            {% for Thought in Message.thoughts %}
+            <td>{{ Thought.text }}</td>
+            {% endfor %}        
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    <p>
+        ======================= Add message below ======= maybe use grid for blocking out the page? ====================
+    </p>
+    <form method="POST" class="message-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='hidden' name="title" value="{{ id }}" />
+        <button type="submit" class="save btn btn-default">Add Message</button>
+    </form>    
+
+    <p>
+        ======================= Search Conversations/Messages ======= <br>
+        <a href="/Search/Conversations">Conversation search</a><br>
+        <a href="/Search/Messages">Message search</a><br>
+        <a href="/Conversations">Home</a>
+    </p>
+{% endblock %}

@@ -1,0 +1,22 @@
+table, th, td {
+    padding: 4px;
+    border: 2px solid black;
+}
+
+form {
+    padding: 4px;
+    border: 2px solid black;
+    float: left;
+}
+
+button {
+    color: blue;
+}
+
+a {
+    padding: 2px;
+}
+
+body {
+    background-color: rgb(115, 211, 211);
+}

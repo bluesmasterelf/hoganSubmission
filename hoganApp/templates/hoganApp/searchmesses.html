@@ -1,0 +1,57 @@
+{% block title %}
+    Search for messages by text content (substring matching)
+{% endblock %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'hoganApp/site.css' %}" />
+{% block content %}
+    
+    <form method="POST" class="thought-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Search for Messages</button>
+    </form>    
+    <p>
+        <a href="/Conversations/">Back to Conversations</a>
+    </p>
+{% endblock %}
+
+{% if noresult %}
+<p>Sorry, no results for that query.</p>
+{% endif %}
+
+
+{% if message_list %}
+        <table class="conversation_list">
+            <thead>
+            <tr>
+                <th>Time Sent</th>
+                <th>Message Text</th>
+                <th>Conversation Title</th>
+                <th>View</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for message in message_list %}
+                <tr>
+                    <td>{{ message.timesent | date:'d M Y' }}</td>
+                    <td>
+                        {{ message.text }}
+                    </td>
+                    <td>
+                        {{ message.Conversation.title}}
+                    </td>
+                    <!-- TODO this is not dynamic as it could be, 
+                        need to figure out how to insert the title into the url in less hard-coded manner-->                   
+                    <td>
+                        <a href="/Message/{{ message.id}}/{{ message.Conversation.id }}">Interact with Message</a>                        
+                    </td>
+                    
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <p>
+            <a href="{% url 'NewConversation' %}">Create Conversation form</a>
+        </p>
+    
+    {% endif %}

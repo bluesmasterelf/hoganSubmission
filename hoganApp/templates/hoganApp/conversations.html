@@ -1,0 +1,48 @@
+{% block title %}
+<h1>Welcome to Ian Hogan's Conversation Page</h1>
+{% endblock %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'hoganApp/site.css' %}" />
+{% block content %}
+    <h2>Conversations:</h2>
+
+    {% if conversation_list %}
+        <table class="conversation_list">
+            <thead>
+            <tr>
+                <th>Start Date</th>
+                <th>Title</th>
+                <th>View</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for Conversation in conversation_list %}
+                <tr>
+                    <td>{{ Conversation.startdate | date:'d M Y' }}</td>
+                    <td>
+                        {{ Conversation.title }}
+                    </td>
+                    <!-- TODO this is not dynamic as it could be, 
+                        need to figure out how to insert the title into the url in less hard-coded manner-->                   
+                    <td>
+                        <a href="/Conversation/{{ Conversation.id}}/">Interact with Conversation</a>                        
+                    </td>
+                    
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <p>
+            <a href="{% url 'NewConversation' %}">Create Conversation form</a>
+        </p>
+    {% else %}
+        <p>No conversations have been made. Use the <a href="{% url 'NewConversation' %}">Create Conversation form</a>.</p>
+    {% endif %}
+
+    <p>
+        ======================= Search Conversations/Messages ======= <br>
+        <a href="/Search/Conversations">Conversation search</a><br>
+        <a href="/Search/Messages">Message search</a><br>
+        <a href="/Conversations">Home</a>
+    </p>
+{% endblock %}

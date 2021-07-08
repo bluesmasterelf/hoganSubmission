@@ -1,0 +1,39 @@
+{% block title %}
+    Interact with a message
+{% endblock %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'hoganApp/site.css' %}" />
+{% block content %}
+    <p>
+        {{ text }} <br>
+        Existing thoughts:
+    </p>
+    <table class="thought_list">
+        <thead>
+        <tr><th>Text</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for Thought in thoughts %}
+        <tr>
+            <td>
+            {{Thought.text}}
+            </td>>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    <p>
+        ======================= Add thought below ======= 
+    </p>
+    <form method="POST" class="thought-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='hidden' name="id" value="{{ id }}" />
+        <button type="submit" class="save btn btn-default">Add Thought</button>
+    </form>    
+    <p>
+        <a href="/Conversation/{{ conversationId }}/">Back to the Conversation</a><br>
+        <a href="/Conversations">Home</a>
+    </p>
+{% endblock %}

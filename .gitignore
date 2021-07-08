@@ -1,0 +1,5 @@
+/node*
+.vscode
+.git
+db.sqlite3
+env/*
