@@ -4,18 +4,20 @@ To boot the app, please perform the following steps.
 
 1) clone repo
 
-2) If you open a separate command prompt or terminal, 
+2) cd into the repository folder 
+
+3) If you open a separate command prompt or terminal, 
 activate the environment by running 
 source env/bin/activate (Linux/macOS) or
 env\scripts\activate (Windows). 
 You know the environment is activated when the command prompt shows (env) at the beginning.
 Note: application was developed and tested in Windows 10 Pro Environment.
 
-3) execute python manage.py migrate
+4) execute python manage.py migrate
 
-4) execute python manage.py runserver
+5) execute python manage.py runserver
 
-5) In Google Chrome, navigate to localhost:8000
+6) In Google Chrome, navigate to localhost:8000
 
 
 Notes:
